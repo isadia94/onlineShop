@@ -3,11 +3,12 @@ import Banner from "../components/Banner";
 import Header from "../components/Header";
 import ProductFeed from "../components/ProductFeed";
 
+
 export default function Home({ products }) {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>OnlineDuka - Shop Online Kenya</title>
         <meta name="description" content="online shopping store" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -1,13 +1,23 @@
 import React, { useState } from "react";
 import { SearchIcon, MenuIcon, ShoppingCartIcon } from "@heroicons/react/solid";
-
+import { useSession, signIn, signOut } from "next-auth/react"
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import { selectItems } from "../app/slices/basketSlice";
 const Header = () => {
-  const numberOfItems = useState(10);
+
+  const {data: session} = useSession();
+
+  const router = useRouter();
+
+  const items = useSelector(selectItems);
+ 
+
 
   return (
     <header className="bg-black text-white">
       <div className="flex flex-grow items-center p-3 space-x-3">
-        <h1 className="text-xl font-bold md:text-3xl flex-grow md:flex-grow-0">
+        <h1 onClick={()=> router.push('/')} className="text-xl font-bold md:text-3xl flex-grow md:flex-grow-0 cursor-pointer ">
           OnlineDuka
         </h1>
         <SearchIcon className="h-6 cursor-pointer md:hidden " />
@@ -23,17 +33,17 @@ const Header = () => {
         </div>
 
         {/* Right */}
-        <div className="link">
-          <p className="text-xs">Hello Brian Lusigi,</p>
+        <div onClick={!session ?signIn : signOut} className="link">
+          <p className="text-xs">{session ? `Hello, ${session.user.name}` : `Sign In`}</p>
           <p className="font-bold text-sm">Account & Lists</p>
         </div>
         <div className="link">
           <p className="text-xs">Returns</p>
           <p className="font-bold text-sm"> & Orders</p>
         </div>
-        <div className="flex items-center relative link">
+        <div onClick={()=>router.push('/checkout')} className="flex items-center relative link">
           <span className="absolute bg-yellow-400 right-0 top-0 md:right-7 h-6 w-6 flex rounded-full items-center justify-center text-black font-bold text-sm">
-            {numberOfItems}
+          {items.length}
           </span>
 
           <ShoppingCartIcon className="h-10" />
