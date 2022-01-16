@@ -1,6 +1,6 @@
 import Head from "next/head"
 import Image from "next/image"
-import Checkout from "../components/checkout"
+import Checkout from "../components/Checkout"
 import Header from "../components/Header"
 
 function CheckoutBox() {
