@@ -19,8 +19,10 @@ function Product({ id, title, price, description, category, image }) {
 
   const addItemsToBasket = ()=>{
    const products ={
-    id, title, price, description, category, image
+    id, title, price, description, category, image, rating, hasPrime
    };
+
+   console.log(products)
 
    dispatch(addToBasket(products))
 

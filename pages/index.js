@@ -19,6 +19,7 @@ export default function Home({ products }) {
           href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=El+Messiri:wght@400;500;600;700&family=Moon+Dance&family=Parisienne&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100;200;300;700;800;900&display=swap"
           rel="stylesheet"
         />
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
       </Head>
       <Header />
       <main className="max-w-screen-2xl mx-auto">
